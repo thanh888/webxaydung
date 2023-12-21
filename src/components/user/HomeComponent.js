@@ -323,7 +323,7 @@ export default function HomeComponent() {
                           <div
                             className="card-bg"
                             style={{
-                              backgroundImage: `url('${item.thumbnail}')`,
+                              backgroundImage: `url('http://localhost:8080/api/v1/new/images/${item.thumbnail}')`,
                             }}
                           ></div>
                         </div>

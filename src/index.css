@@ -12,3 +12,9 @@ code {
     monospace;
 }
 
+
+.content .image img {
+  max-width: 680px;
+  object-fit: cover;
+}
+

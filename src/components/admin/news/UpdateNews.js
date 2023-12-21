@@ -8,19 +8,20 @@ import Modal from "react-bootstrap/Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
-export default function CretateNews() {
-  const user = useSelector((state) => state.auth.login.currentUser);
+export default function UpdateNews() {
   const navigate = useNavigate();
-  const [content, setContent] = useState("");
+  const user = useSelector((state) => state.auth.login.currentUser);
+  const [news, setNews] = useState();
+  const [content, setContent] = useState(news?.content);
   const [title, setTitle] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [listCategories, setListCategories] = useState();
   const [categoryId, setCategoryId] = useState("");
   const [currentDate, setCurrentDate] = useState("");
-
+  const { id } = useParams();
   const fetchListCategories = async () => {
     await axios
       .get("/api/v1/category", {
@@ -35,9 +36,37 @@ export default function CretateNews() {
         console.log(error);
       });
   };
+  const fetchInforNews = async () => {
+    await axios
+      .get("/api/v1/new/" + id, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((response) => {
+        setNews(response.data);
+        console.log(news);
+        console.log(content);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   useEffect(() => {
+    fetchInforNews();
     fetchListCategories();
-  }, []);
+    console.log(id);
+  }, [id]);
+  useEffect(() => {
+    if (news) {
+      setContent(news.content);
+      setTitle(news.title);
+      setShortDescription(news.short_description);
+      setThumbnail(news.thumbnail);
+      setCategoryId(news.category_id);
+      setCurrentDate(news.date_published);
+    }
+  }, [news]);
 
   const selectThumbnail = async (pics) => {
     if (pics === undefined) {
@@ -77,13 +106,11 @@ export default function CretateNews() {
     }
   };
   const handleSaveNews = async () => {
-    // console.log(content);
-    if (!title || !content || !shortDescription || !thumbnail || !categoryId) {
+    console.log(categoryId);
+    if (!title || !content || !shortDescription || !categoryId) {
       toast.warning("Thông tin không được bỏ trống", {
         autoClose: 700,
       });
-      navigate("/admin/news");
-
       return;
     }
     const currentDate = new Date();
@@ -100,11 +127,10 @@ export default function CretateNews() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(
-        "/api/v1/new",
+      const { data } = await axios.put(
+        "/api/v1/new/" + id,
         {
           content: content,
-          date_published: currentDate,
           short_description: shortDescription,
           thumbnail: thumbnail,
           title: title,
@@ -113,7 +139,7 @@ export default function CretateNews() {
         config
       );
       if (data) {
-        toast.success("Thêm thành công", {
+        toast.success("Cập nhật thành công", {
           autoClose: 700,
         });
         navigate("/admin/news");
@@ -159,7 +185,7 @@ export default function CretateNews() {
       <ToastContainer closeOnClick />
 
       <div className="container">
-        <h1>Thêm mới tin tức</h1>
+        <h1>Chỉnh sửa tin tức</h1>
         <div className="row">
           <Form>
             <Form.Group className="mb-3">
@@ -198,9 +224,12 @@ export default function CretateNews() {
                 }}
               >
                 <option selected>Lựa chọn thư mục</option>
+
                 {listCategories &&
                   listCategories.map((item, index) => (
-                    <option value={item.id}>{item.name}</option>
+                    <option key={index} value={item.id}>
+                      {item.name}
+                    </option>
                   ))}
               </Form.Select>
             </Form.Group>
@@ -225,9 +254,8 @@ export default function CretateNews() {
             extraPlugins: [uploadPlugin],
           }}
           editor={ClassicEditor}
-          data="<p>Hello from CKEditor 5!</p>"
+          data={content}
           onReady={(editor) => {
-            // You can store the "editor" and use when it is needed.
             console.log("Editor is ready to use!", editor);
           }}
           onChange={(event, editor) => {
@@ -246,7 +274,7 @@ export default function CretateNews() {
           variant="primary"
           onClick={handleSaveNews}
         >
-          Thêm mới
+          Lưu thay đổi
         </Button>
       </div>
     </>

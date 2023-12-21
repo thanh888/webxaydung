@@ -20,6 +20,7 @@ export default function News() {
   const navigate = useNavigate();
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
+    console.log(currentImage);
     setIsViewerOpen(true);
   }, []);
 
@@ -59,12 +60,16 @@ export default function News() {
       name: "Ảnh bài viết",
       cell: (row) => (
         <img
-          src={row.thumbnail} // Đường dẫn đến hình ảnh
+          src={`http://localhost:8080/api/v1/new/images/${row.thumbnail}`} // Đường dẫn đến hình ảnh
           width="50px"
           height="50px"
           style={{ margin: "5px" }}
           alt="Ảnh bài viết"
-          onClick={() => openImageViewer(row.thumbnail)}
+          onClick={() =>
+            openImageViewer(
+              `http://localhost:8080/api/v1/new/images/${row.thumbnail}`
+            )
+          }
         />
       ),
     },
@@ -103,11 +108,12 @@ export default function News() {
   ];
   const handClickCreate = () => {
     // setModalCreate(true);
-    navigate("/create-news");
+    navigate("/admin/create-news");
   };
   const handleEdit = (data) => {
-    setNews(data);
-    setModalEdit(!modalEdit);
+    // setNews(data);
+    // setModalEdit(!modalEdit);
+    navigate(`/admin/update-news/${data.id}`);
   };
   const handleDelete = (data) => {
     setNews(data);

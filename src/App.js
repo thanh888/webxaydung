@@ -17,6 +17,7 @@ import UserBlog from "./pages/user/UserBlog";
 import ContactManagement from "./pages/admin/ContactManagement";
 import CretateNews from "./components/admin/news/CreateNews";
 import BlogDetail from "./pages/user/BlogDetail";
+import UpdateNews from "./components/admin/news/UpdateNews";
 function App() {
   return (
     <div className="App">
@@ -32,18 +33,18 @@ function App() {
               <Route path="blog" element={<UserBlog />} />
               <Route path="blog-detail/:id" element={<BlogDetail />} />
               <Route path="service-detail" element={<UserService />} />
-              <Route path="blog-detail" element={<UserService />} />
             </Route>
             <Route path="admin" element={<Admin />}>
               <Route index element={<Employee />} />
               <Route path="category-news" element={<CategoryNews />} />
               <Route path="news" element={<News />} />
+              <Route path="create-news" element={<CretateNews />} />
+              <Route path="update-news/:id" element={<UpdateNews />} />
               <Route path="contact" element={<ContactManagement />} />
               <Route path="candidate" element={<Candidate />} />
               <Route path="sub-email" element={<SubMail />} />
             </Route>
             <Route path="login" element={<Login />} />
-            <Route path="create-news" element={<CretateNews />} />
           </Route>
         </Routes>
       </BrowserRouter>
