@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Employee from "./pages/admin/Employee";
 import News from "./pages/admin/News";
 import CategoryNews from "./pages/admin/CategoryNews";
-import Candidate from "./pages/admin/Candidate";
 import SubMail from "./pages/admin/SubMail";
 import HomeComponent from "./components/user/HomeComponent";
 import UserContact from "./pages/user/UserContact";
@@ -18,6 +17,11 @@ import ContactManagement from "./pages/admin/ContactManagement";
 import CretateNews from "./components/admin/news/CreateNews";
 import BlogDetail from "./pages/user/BlogDetail";
 import UpdateNews from "./components/admin/news/UpdateNews";
+import JobOpening from "./pages/admin/JobOpening";
+import ServiceDetail from "./pages/user/ServiceDetail";
+import Candidate from "./pages/admin/Candidate";
+import UserJobOpening from "./pages/user/UserJobOpening";
+import DetailJobOpening from "./pages/user/DetailJobOpening";
 function App() {
   return (
     <div className="App">
@@ -29,10 +33,15 @@ function App() {
               <Route path="contact" element={<UserContact />} />
               <Route path="projects" element={<UserProject />} />
               <Route path="services" element={<UserService />} />
+              <Route path="job-opening" element={<UserJobOpening />} />
+              <Route
+                path="job-opening-detail/:id"
+                element={<DetailJobOpening />}
+              />
               <Route path="about" element={<About />} />
               <Route path="blog" element={<UserBlog />} />
               <Route path="blog-detail/:id" element={<BlogDetail />} />
-              <Route path="service-detail" element={<UserService />} />
+              <Route path="service-detail/:id" element={<ServiceDetail />} />
             </Route>
             <Route path="admin" element={<Admin />}>
               <Route index element={<Employee />} />
@@ -43,6 +52,7 @@ function App() {
               <Route path="contact" element={<ContactManagement />} />
               <Route path="candidate" element={<Candidate />} />
               <Route path="sub-email" element={<SubMail />} />
+              <Route path="job-opening" element={<JobOpening />} />
             </Route>
             <Route path="login" element={<Login />} />
           </Route>

@@ -31,7 +31,7 @@ export default function Header() {
               <NavLink to="/services">Dịch vụ</NavLink>
             </li>
             <li>
-              <NavLink to="/projects">Dự án</NavLink>
+              <NavLink to="/job-opening">Tuyển dụng</NavLink>
             </li>
             <li>
               <NavLink to="/blog">Blog</NavLink>

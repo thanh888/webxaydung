@@ -39,8 +39,12 @@ export default function Admin() {
                 <Nav.Link as={Link} to="/admin/candidate" className="text-dark">
                   Ứng viên
                 </Nav.Link>
-                <Nav.Link as={Link} to="/admin/sub-email" className="text-dark">
-                  Sub-email
+                <Nav.Link
+                  as={Link}
+                  to="/admin/job-opening"
+                  className="text-dark"
+                >
+                  Tuyển dụng
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -54,6 +58,9 @@ export default function Admin() {
                 </Nav.Link>
                 <Nav.Link as={Link} to="/admin/contact" className="text-dark">
                   Liên hệ
+                </Nav.Link>
+                <Nav.Link as={Link} to="/admin/sub-email" className="text-dark">
+                  Sub-email
                 </Nav.Link>
               </Nav>
               <div>

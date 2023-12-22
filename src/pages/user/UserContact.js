@@ -24,11 +24,6 @@ export default function UserContact() {
 
     const formattedDate = `${year}-${month}-${day}`;
     try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      };
       const { data } = await axios
         .post("/api/v1/contact", {
           address: address,
@@ -66,13 +61,7 @@ export default function UserContact() {
             class="container position-relative d-flex flex-column align-items-center"
             data-aos="fade"
           >
-            <h2>Contact</h2>
-            <ol>
-              <li>
-                <a href="index.html">Home</a>
-              </li>
-              <li>Contact</li>
-            </ol>
+            <h2>Liên Hệ</h2>
           </div>
         </div>
 
@@ -82,7 +71,7 @@ export default function UserContact() {
               <div class="col-lg-6">
                 <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-map"></i>
-                  <h3>Our Address</h3>
+                  <h3>Địa chỉ</h3>
                   <p>A108 Adam Street, New York, NY 535022</p>
                 </div>
               </div>
@@ -90,7 +79,7 @@ export default function UserContact() {
               <div class="col-lg-3 col-md-6">
                 <div class="info-item d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-envelope"></i>
-                  <h3>Email Us</h3>
+                  <h3>Email</h3>
                   <p>contact@example.com</p>
                 </div>
               </div>
@@ -98,7 +87,7 @@ export default function UserContact() {
               <div class="col-lg-3 col-md-6">
                 <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-telephone"></i>
-                  <h3>Call Us</h3>
+                  <h3>Số Điện Thoại</h3>
                   <p>+1 5589 55488 55</p>
                 </div>
               </div>

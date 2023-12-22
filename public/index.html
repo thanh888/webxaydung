@@ -39,7 +39,21 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=1069091167572595"
+    nonce="I3Q2yI5S"></script>
   <div id="root"></div>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v18.0'
+      });
+    };
+
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="http://localhost:3000/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
