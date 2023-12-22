@@ -212,13 +212,7 @@ export default function HomeComponent() {
 
               <div className="col-lg-5" data-aos="fade">
                 <form className="php-email-form" onSubmit={handleSend}>
-                  <h3>Nhận báo giá</h3>
-                  <p>
-                    Chúng tôi yêu cầu bạn chấp nhận sự thật và chúng tôi yêu cầu
-                    bạn chấp nhận sự thật. Chúng tôi sáng tạo và chúng tôi yêu
-                    cầu bạn chấp nhận sự thật. Chúng tôi từ chối sự lựa chọn tốt
-                    nhất và chúng tôi yêu cầu bạn chấp nhận sự thật.
-                  </p>
+                  <h3>Liên hệ ngay</h3>
                   <div className="row gy-3">
                     <div className="col-md-12">
                       <input

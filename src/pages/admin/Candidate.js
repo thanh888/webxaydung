@@ -11,6 +11,7 @@ export default function Candidate() {
   const [modalEdit, setModalEdit] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
   const [candidate, setCandidate] = useState("");
+  const [cvData, setCvData] = useState({});
   const getListCandidates = async () => {
     await axios
       .get("/api/v1/candidate", {
@@ -25,6 +26,19 @@ export default function Candidate() {
         console.log(error);
       });
   };
+  const formatFileCV = async (data) => {
+    try {
+      const response = await axios.get(`/api/v1/candidate/${data.id}/cv`, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      });
+      console.log(response.data);
+      setCvData((prevState) => ({ ...prevState, [data.id]: response.data })); // Đặt dữ liệu trong trạng thái
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getListCandidates();
   }, []);
@@ -36,8 +50,18 @@ export default function Candidate() {
       sortable: true,
     },
     {
-      name: "Code danh mục",
-      selector: (row) => row.code,
+      name: "Email",
+      selector: (row) => row.email,
+      sortable: true,
+    },
+    {
+      name: "SĐT",
+      selector: (row) => row.phone,
+      sortable: true,
+    },
+    {
+      name: "File CV",
+      selector: (row) => cvData[row],
       sortable: true,
     },
     {
@@ -77,34 +101,18 @@ export default function Candidate() {
 
   return (
     <div>
-      {/* <ModalCreateCategory
-        showModal={modalCreate}
-        setShowModal={setModalCreate}
-        fetchData={getListCandidates}
-        accessToken={user?.token}
-      />
-      <ModalEditCategory
-        showModal={modalEdit}
-        setShowModal={setModalEdit}
-        fetchData={getListCandidates}
-        accessToken={user?.token}
-        candidate={candidate}
-      />
-      <ModalDeleteCategory
-        showModal={modalDelete}
-        setShowModal={setModalDelete}
-        fetchData={getListCandidates}
-        accessToken={user?.token}
-        candidate={candidate}
-      /> */}
       <h2>Quản lý danh mục tin tức</h2>
       <div className="top-content text-start mt-3 mb-3"></div>
-      <DataTable
-        columns={headers}
-        data={listCandidates}
-        defaultSortField="title"
-        pagination
-      />
+      <div className="row">
+        <div className="col-6">
+          <DataTable
+            columns={headers}
+            data={listCandidates}
+            defaultSortField="title"
+            pagination
+          />
+        </div>
+      </div>
     </div>
   );
 }

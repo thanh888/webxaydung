@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
@@ -16,7 +16,10 @@ export default function Admin() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [isAdmin, setIsAdmin] = useState();
+
   useEffect(() => {
+    setIsAdmin(JSON.parse(localStorage.getItem("isAdmin")));
     if (!user) {
       navigate("/login");
     }
@@ -33,22 +36,50 @@ export default function Admin() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto ">
-                <Nav.Link as={Link} to="/admin/" className="text-dark">
-                  Nhân viên
-                </Nav.Link>
-                <Nav.Link as={Link} to="/admin/candidate" className="text-dark">
-                  Ứng viên
-                </Nav.Link>
-                <Nav.Link
-                  as={Link}
-                  to="/admin/job-opening"
-                  className="text-dark"
-                >
-                  Bài Tuyển dụng
-                </Nav.Link>
-                <Nav.Link as={Link} to="/admin/candidate" className="text-dark">
-                  Đơn Tuyển Dụng
-                </Nav.Link>
+                {isAdmin === true ? (
+                  <>
+                    <Nav.Link as={Link} to="/admin/" className="text-dark">
+                      Nhân viên
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      to="/admin/candidate"
+                      className="text-dark"
+                    >
+                      Ứng viên
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      to="/admin/job-opening"
+                      className="text-dark"
+                    >
+                      Bài Tuyển dụng
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      to="/admin/candidate"
+                      className="text-dark"
+                    >
+                      Đơn Tuyển Dụng
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      to="/admin/contact"
+                      className="text-dark"
+                    >
+                      Liên hệ
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      to="/admin/sub-email"
+                      className="text-dark"
+                    >
+                      Sub-email
+                    </Nav.Link>
+                  </>
+                ) : (
+                  ""
+                )}
                 <Nav.Link
                   as={Link}
                   to="/admin/category-news"
@@ -58,12 +89,6 @@ export default function Admin() {
                 </Nav.Link>
                 <Nav.Link as={Link} to="/admin/news" className="text-dark">
                   Tin tức
-                </Nav.Link>
-                <Nav.Link as={Link} to="/admin/contact" className="text-dark">
-                  Liên hệ
-                </Nav.Link>
-                <Nav.Link as={Link} to="/admin/sub-email" className="text-dark">
-                  Sub-email
                 </Nav.Link>
               </Nav>
               <div>

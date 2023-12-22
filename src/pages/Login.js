@@ -2,19 +2,23 @@ import React, { useEffect, useState } from "react";
 import { loginUser } from "../redux/apiRequest";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { Form } from "react-bootstrap";
 export default function Login() {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false);
   const user = useSelector((state) => state.auth.login.currentUser);
   useEffect(() => {
     if (user) {
       navigate("/admin");
     }
   }, []);
+
   const submitLogin = (e) => {
     e.preventDefault();
+    localStorage.setItem("isAdmin", isAdmin);
     const data = {
       account: account,
       password: password,
@@ -32,11 +36,6 @@ export default function Login() {
               <div className="card-body">
                 <h5 className="card-title text-center mb-4">Đăng nhập</h5>
                 <form onSubmit={submitLogin}>
-                  {/* <p className="text-center ">
-                    <small className="text-danger">
-                      Tài khoản hoặc mật khẩu không đúng.
-                    </small>
-                  </p> */}
                   <div className="mb-3">
                     <label for="account" className="form-label">
                       Tài khoản
@@ -61,6 +60,14 @@ export default function Login() {
                       name="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <Form.Check
+                      type="switch"
+                      id="custom-switch"
+                      label="Admin"
+                      onChange={(e) => setIsAdmin(e.target.checked)}
                     />
                   </div>
                   <div className="d-grid gap-2">
