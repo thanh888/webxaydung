@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 export default function BlogDetail() {
   const user = useSelector((state) => state.auth.login.currentUser);
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState();
   const { id } = useParams();
   const getInforNew = async () => {
     try {
@@ -27,6 +27,8 @@ export default function BlogDetail() {
     }
   };
   useEffect(() => {
+    window.scrollTo(0, 0);
+    getInforNew();
     if (window.FB) {
       window.FB.XFBML.parse();
     }
@@ -50,8 +52,6 @@ export default function BlogDetail() {
       js.src = `//connect.facebook.net/${locale}/sdk.js`;
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
-    window.scrollTo(0, 0);
-    getInforNew();
   }, [id]);
 
   return (
