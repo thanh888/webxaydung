@@ -44,7 +44,10 @@ export default function Admin() {
                   to="/admin/job-opening"
                   className="text-dark"
                 >
-                  Tuyển dụng
+                  Bài Tuyển dụng
+                </Nav.Link>
+                <Nav.Link as={Link} to="/admin/candidate" className="text-dark">
+                  Đơn Tuyển Dụng
                 </Nav.Link>
                 <Nav.Link
                   as={Link}

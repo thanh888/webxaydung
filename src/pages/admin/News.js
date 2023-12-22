@@ -75,7 +75,9 @@ export default function News() {
     },
     {
       name: "Ngày đăng",
-      cell: (row) => formatDate(row.date_published),
+      cell: (row) => (
+        <span>{new Date(row.date_published).toLocaleString()}</span>
+      ),
       sortable: true,
     },
     {
