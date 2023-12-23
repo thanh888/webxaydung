@@ -3,139 +3,126 @@ export default function About() {
     <>
       <main id="main">
         <div
-          class="breadcrumbs d-flex align-items-center"
+          className="breadcrumbs d-flex align-items-center"
           style={{ backgroundImage: "url('assets/img/breadcrumbs-bg.jpg')" }}
         >
           <div
-            class="container position-relative d-flex flex-column align-items-center"
+            className="container position-relative d-flex flex-column align-items-center"
             data-aos="fade"
           >
             <h2>Giới thiệu</h2>
           </div>
         </div>
 
-        <section id="about" class="about">
-          <div class="container" data-aos="fade-up">
-            <div class="row position-relative">
-              <div
-                class="col-lg-7 about-img"
-                style={{ backgroundImage: "url(assets/img/about.jpg)" }}
-              ></div>
-
-              <div class="col-lg-7">
-                <h2>
-                  Phát triển công ty HMP thành công ty xây dựng uy tín, chất
-                  lượng.
-                </h2>
-                <div class="our-story">
-                  <h3>Câu chuyện</h3>
+        <section id="about" className="about ">
+          <div className="container" data-aos="fade-up">
+            <div className="our-story row " style={{ paddingRight: "40px" }}>
+              <h3>Tổng Quan Công Ty</h3>
+              <div className="col-md-12">
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Tên đầy đủ</h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">
+                    Công Ty Cổ Phần Xây Dựng Hoàn Minh Phát
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Tên viết tắt</h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">
+                    HMP Construction
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Mã số thuế</h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">0305371707</div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Trụ sở chính</h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">
+                    Đường Cách Mạng Tháng 8, Biên Hòa, Vietnam
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Điện thoại</h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">094 388 11 69</div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Website </h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">
+                    www.hmpconstruction.com
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Email</h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">
+                    vohoanhson@gmail.com
+                  </div>
+                </div>
+                <hr />
+              </div>
+              <div className="col-md-12 mt-4">
+                <div className="title">
+                  <h6>TẦM NHÌN</h6>
+                </div>
+                <div className="content">
+                  <p>
+                    Phát triển công ty HMP thành công ty xây dựng uy tín, chất
+                    lượng.
+                  </p>
+                </div>
+              </div>
+              <div className="col-md-12 mt-4">
+                <div className="title">
+                  <h6>SỨ MỆNH</h6>
+                </div>
+                <div className="content">
                   <p>
                     HMP Construction cam kết đem đến cho khách hàng những sản
                     phẩm hoàn thành đúng tiến độ, đảm bảo chất lượng cả về kỹ
                     thuật, mỹ thuật và độ an toàn cao.
                   </p>
-                  <ul>
-                    <li>
-                      <i class="bi bi-check-circle"></i>{" "}
-                      <span>
-                        Luôn đặt lợi ích của khách hàng và đối tác lên hàng đầu
-                      </span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check-circle"></i>{" "}
-                      <span>Lấy chuẩn mực tạo ra chất lượng</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check-circle"></i>{" "}
-                      <span>
-                        Lấy uy tín và chất lượng làm thước đo giá trị thương
-                        hiệu
-                      </span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="stats-counter" class="stats-counter section-bg">
-          <div class="container">
-            <div class="row gy-4">
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item d-flex align-items-center w-100 h-100">
-                  <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
-                  <div>
-                    <span
-                      data-purecounter-start="0"
-                      data-purecounter-end="232"
-                      data-purecounter-duration="1"
-                      class="purecounter"
-                    ></span>
-                    <p>Happy Clients</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item d-flex align-items-center w-100 h-100">
-                  <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i>
-                  <div>
-                    <span
-                      data-purecounter-start="0"
-                      data-purecounter-end="521"
-                      data-purecounter-duration="1"
-                      class="purecounter"
-                    ></span>
-                    <p>Projects</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item d-flex align-items-center w-100 h-100">
-                  <i class="bi bi-headset color-green flex-shrink-0"></i>
-                  <div>
-                    <span
-                      data-purecounter-start="0"
-                      data-purecounter-end="1463"
-                      data-purecounter-duration="1"
-                      class="purecounter"
-                    ></span>
-                    <p>Hours Of Support</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6">
-                <div class="stats-item d-flex align-items-center w-100 h-100">
-                  <i class="bi bi-people color-pink flex-shrink-0"></i>
-                  <div>
-                    <span
-                      data-purecounter-start="0"
-                      data-purecounter-end="15"
-                      data-purecounter-duration="1"
-                      class="purecounter"
-                    ></span>
-                    <p>Hard Workers</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <section id="stats-counter" className="stats-counter section-bg">
+          <div className="container">
+            <div className="row gy-4"></div>
           </div>
         </section>
 
-        <section id="alt-services" class="alt-services">
-          <div class="container" data-aos="fade-up">
-            <div class="row justify-content-around gy-4">
+        <section id="alt-services" className="alt-services">
+          <div className="container" data-aos="fade-up">
+            <div className="row justify-content-around gy-4">
               <div
-                class="col-lg-6 img-bg"
+                className="col-lg-6 img-bg"
                 style={{ backgroundImage: "url(assets/img/alt-services.jpg);" }}
                 data-aos="zoom-in"
                 data-aos-delay="100"
               ></div>
 
-              <div class="col-lg-5 d-flex flex-column justify-content-center">
+              <div className="col-lg-5 d-flex flex-column justify-content-center">
                 <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
                 <p>
                   Esse voluptas cumque vel exercitationem. Reiciendis est hic
@@ -144,14 +131,14 @@ export default function About() {
                 </p>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="100"
                 >
-                  <i class="bi bi-easel flex-shrink-0"></i>
+                  <i className="bi bi-easel flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Lorem Ipsum
                       </a>
                     </h4>
@@ -164,14 +151,14 @@ export default function About() {
                 </div>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  <i class="bi bi-patch-check flex-shrink-0"></i>
+                  <i className="bi bi-patch-check flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Nemo Enim
                       </a>
                     </h4>
@@ -183,14 +170,14 @@ export default function About() {
                 </div>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="300"
                 >
-                  <i class="bi bi-brightness-high flex-shrink-0"></i>
+                  <i className="bi bi-brightness-high flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Dine Pad
                       </a>
                     </h4>
@@ -202,14 +189,14 @@ export default function About() {
                 </div>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
-                  <i class="bi bi-brightness-high flex-shrink-0"></i>
+                  <i className="bi bi-brightness-high flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Tride clov
                       </a>
                     </h4>
@@ -224,10 +211,10 @@ export default function About() {
           </div>
         </section>
 
-        <section id="alt-services-2" class="alt-services section-bg">
-          <div class="container" data-aos="fade-up">
-            <div class="row justify-content-around gy-4">
-              <div class="col-lg-5 d-flex flex-column justify-content-center">
+        <section id="alt-services-2" className="alt-services section-bg">
+          <div className="container" data-aos="fade-up">
+            <div className="row justify-content-around gy-4">
+              <div className="col-lg-5 d-flex flex-column justify-content-center">
                 <h3>
                   Non quasi officia eum nobis et rerum epudiandae rem voluptatem
                 </h3>
@@ -238,14 +225,14 @@ export default function About() {
                 </p>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="100"
                 >
-                  <i class="bi bi-easel flex-shrink-0"></i>
+                  <i className="bi bi-easel flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Lorem Ipsum
                       </a>
                     </h4>
@@ -258,14 +245,14 @@ export default function About() {
                 </div>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  <i class="bi bi-patch-check flex-shrink-0"></i>
+                  <i className="bi bi-patch-check flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Nemo Enim
                       </a>
                     </h4>
@@ -277,14 +264,14 @@ export default function About() {
                 </div>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="300"
                 >
-                  <i class="bi bi-brightness-high flex-shrink-0"></i>
+                  <i className="bi bi-brightness-high flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Dine Pad
                       </a>
                     </h4>
@@ -296,14 +283,14 @@ export default function About() {
                 </div>
 
                 <div
-                  class="icon-box d-flex position-relative"
+                  className="icon-box d-flex position-relative"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
-                  <i class="bi bi-brightness-high flex-shrink-0"></i>
+                  <i className="bi bi-brightness-high flex-shrink-0"></i>
                   <div>
                     <h4>
-                      <a href="" class="stretched-link">
+                      <a href="" className="stretched-link">
                         Tride clov
                       </a>
                     </h4>
@@ -316,7 +303,7 @@ export default function About() {
               </div>
 
               <div
-                class="col-lg-6 img-bg"
+                className="col-lg-6 img-bg"
                 style={{
                   backgroundImage: "url(assets/img/alt-services-2.jpg);",
                 }}
@@ -327,9 +314,9 @@ export default function About() {
           </div>
         </section>
 
-        <section id="team" class="team">
-          <div class="container" data-aos="fade-up">
-            <div class="section-header">
+        <section id="team" className="team">
+          <div className="container" data-aos="fade-up">
+            <div className="section-header">
               <h2>Our Team</h2>
               <p>
                 Aperiam dolorum et et wuia molestias qui eveniet numquam nihil
@@ -338,34 +325,34 @@ export default function About() {
               </p>
             </div>
 
-            <div class="row gy-5">
+            <div className="row gy-5">
               <div
-                class="col-lg-4 col-md-6 member"
+                className="col-lg-4 col-md-6 member"
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <div class="member-img">
+                <div className="member-img">
                   <img
                     src="assets/img/team/team-1.jpg"
-                    class="img-fluid"
+                    className="img-fluid"
                     alt=""
                   />
-                  <div class="social">
+                  <div className="social">
                     <a href="#">
-                      <i class="bi bi-twitter"></i>
+                      <i className="bi bi-twitter"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-facebook"></i>
+                      <i className="bi bi-facebook"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-instagram"></i>
+                      <i className="bi bi-instagram"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-linkedin"></i>
+                      <i className="bi bi-linkedin"></i>
                     </a>
                   </div>
                 </div>
-                <div class="member-info text-center">
+                <div className="member-info text-center">
                   <h4>Walter White</h4>
                   <span>Chief Executive Officer</span>
                   <p>
@@ -376,32 +363,32 @@ export default function About() {
               </div>
 
               <div
-                class="col-lg-4 col-md-6 member"
+                className="col-lg-4 col-md-6 member"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <div class="member-img">
+                <div className="member-img">
                   <img
                     src="assets/img/team/team-2.jpg"
-                    class="img-fluid"
+                    className="img-fluid"
                     alt=""
                   />
-                  <div class="social">
+                  <div className="social">
                     <a href="#">
-                      <i class="bi bi-twitter"></i>
+                      <i className="bi bi-twitter"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-facebook"></i>
+                      <i className="bi bi-facebook"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-instagram"></i>
+                      <i className="bi bi-instagram"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-linkedin"></i>
+                      <i className="bi bi-linkedin"></i>
                     </a>
                   </div>
                 </div>
-                <div class="member-info text-center">
+                <div className="member-info text-center">
                   <h4>Sarah Jhonson</h4>
                   <span>Product Manager</span>
                   <p>
@@ -412,32 +399,32 @@ export default function About() {
               </div>
 
               <div
-                class="col-lg-4 col-md-6 member"
+                className="col-lg-4 col-md-6 member"
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                <div class="member-img">
+                <div className="member-img">
                   <img
                     src="assets/img/team/team-3.jpg"
-                    class="img-fluid"
+                    className="img-fluid"
                     alt=""
                   />
-                  <div class="social">
+                  <div className="social">
                     <a href="#">
-                      <i class="bi bi-twitter"></i>
+                      <i className="bi bi-twitter"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-facebook"></i>
+                      <i className="bi bi-facebook"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-instagram"></i>
+                      <i className="bi bi-instagram"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-linkedin"></i>
+                      <i className="bi bi-linkedin"></i>
                     </a>
                   </div>
                 </div>
-                <div class="member-info text-center">
+                <div className="member-info text-center">
                   <h4>William Anderson</h4>
                   <span>CTO</span>
                   <p>
@@ -448,32 +435,32 @@ export default function About() {
               </div>
 
               <div
-                class="col-lg-4 col-md-6 member"
+                className="col-lg-4 col-md-6 member"
                 data-aos="fade-up"
                 data-aos-delay="400"
               >
-                <div class="member-img">
+                <div className="member-img">
                   <img
                     src="assets/img/team/team-4.jpg"
-                    class="img-fluid"
+                    className="img-fluid"
                     alt=""
                   />
-                  <div class="social">
+                  <div className="social">
                     <a href="#">
-                      <i class="bi bi-twitter"></i>
+                      <i className="bi bi-twitter"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-facebook"></i>
+                      <i className="bi bi-facebook"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-instagram"></i>
+                      <i className="bi bi-instagram"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-linkedin"></i>
+                      <i className="bi bi-linkedin"></i>
                     </a>
                   </div>
                 </div>
-                <div class="member-info text-center">
+                <div className="member-info text-center">
                   <h4>Amanda Jepson</h4>
                   <span>Accountant</span>
                   <p>
@@ -484,32 +471,32 @@ export default function About() {
               </div>
 
               <div
-                class="col-lg-4 col-md-6 member"
+                className="col-lg-4 col-md-6 member"
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
-                <div class="member-img">
+                <div className="member-img">
                   <img
                     src="assets/img/team/team-5.jpg"
-                    class="img-fluid"
+                    className="img-fluid"
                     alt=""
                   />
-                  <div class="social">
+                  <div className="social">
                     <a href="#">
-                      <i class="bi bi-twitter"></i>
+                      <i className="bi bi-twitter"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-facebook"></i>
+                      <i className="bi bi-facebook"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-instagram"></i>
+                      <i className="bi bi-instagram"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-linkedin"></i>
+                      <i className="bi bi-linkedin"></i>
                     </a>
                   </div>
                 </div>
-                <div class="member-info text-center">
+                <div className="member-info text-center">
                   <h4>Brian Doe</h4>
                   <span>Marketing</span>
                   <p>
@@ -520,32 +507,32 @@ export default function About() {
               </div>
 
               <div
-                class="col-lg-4 col-md-6 member"
+                className="col-lg-4 col-md-6 member"
                 data-aos="fade-up"
                 data-aos-delay="600"
               >
-                <div class="member-img">
+                <div className="member-img">
                   <img
                     src="assets/img/team/team-6.jpg"
-                    class="img-fluid"
+                    className="img-fluid"
                     alt=""
                   />
-                  <div class="social">
+                  <div className="social">
                     <a href="#">
-                      <i class="bi bi-twitter"></i>
+                      <i className="bi bi-twitter"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-facebook"></i>
+                      <i className="bi bi-facebook"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-instagram"></i>
+                      <i className="bi bi-instagram"></i>
                     </a>
                     <a href="#">
-                      <i class="bi bi-linkedin"></i>
+                      <i className="bi bi-linkedin"></i>
                     </a>
                   </div>
                 </div>
-                <div class="member-info text-center">
+                <div className="member-info text-center">
                   <h4>Josepha Palas</h4>
                   <span>Operation</span>
                   <p>
@@ -558,9 +545,9 @@ export default function About() {
           </div>
         </section>
 
-        <section id="testimonials" class="testimonials section-bg">
-          <div class="container" data-aos="fade-up">
-            <div class="section-header">
+        <section id="testimonials" className="testimonials section-bg">
+          <div className="container" data-aos="fade-up">
+            <div className="section-header">
               <h2>Testimonials</h2>
               <p>
                 Quam sed id excepturi ccusantium dolorem ut quis dolores nisi
@@ -569,154 +556,154 @@ export default function About() {
               </p>
             </div>
 
-            <div class="slides-2 swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
+            <div className="slides-2 swiper">
+              <div className="swiper-wrapper">
+                <div className="swiper-slide">
+                  <div className="testimonial-wrap">
+                    <div className="testimonial-item">
                       <img
                         src="assets/img/testimonials/testimonials-1.jpg"
-                        class="testimonial-img"
+                        className="testimonial-img"
                         alt=""
                       />
                       <h3>Saul Goodman</h3>
                       <h4>Ceo &amp; Founder</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div className="stars">
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
                       </div>
                       <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
+                        <i className="bi bi-quote quote-icon-left"></i>
                         Proin iaculis purus consequat sem cure digni ssim donec
                         porttitora entum suscipit rhoncus. Accusantium quam,
                         ultricies eget id, aliquam eget nibh et. Maecen aliquam,
                         risus at semper.
-                        <i class="bi bi-quote quote-icon-right"></i>
+                        <i className="bi bi-quote quote-icon-right"></i>
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
+                <div className="swiper-slide">
+                  <div className="testimonial-wrap">
+                    <div className="testimonial-item">
                       <img
                         src="assets/img/testimonials/testimonials-2.jpg"
-                        class="testimonial-img"
+                        className="testimonial-img"
                         alt=""
                       />
                       <h3>Sara Wilsson</h3>
                       <h4>Designer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div className="stars">
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
                       </div>
                       <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
+                        <i className="bi bi-quote quote-icon-left"></i>
                         Export tempor illum tamen malis malis eram quae irure
                         esse labore quem cillum quid cillum eram malis quorum
                         velit fore eram velit sunt aliqua noster fugiat irure
                         amet legam anim culpa.
-                        <i class="bi bi-quote quote-icon-right"></i>
+                        <i className="bi bi-quote quote-icon-right"></i>
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
+                <div className="swiper-slide">
+                  <div className="testimonial-wrap">
+                    <div className="testimonial-item">
                       <img
                         src="assets/img/testimonials/testimonials-3.jpg"
-                        class="testimonial-img"
+                        className="testimonial-img"
                         alt=""
                       />
                       <h3>Jena Karlis</h3>
                       <h4>Store Owner</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div className="stars">
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
                       </div>
                       <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
+                        <i className="bi bi-quote quote-icon-left"></i>
                         Enim nisi quem export duis labore cillum quae magna enim
                         sint quorum nulla quem veniam duis minim tempor labore
                         quem eram duis noster aute amet eram fore quis sint
                         minim.
-                        <i class="bi bi-quote quote-icon-right"></i>
+                        <i className="bi bi-quote quote-icon-right"></i>
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
+                <div className="swiper-slide">
+                  <div className="testimonial-wrap">
+                    <div className="testimonial-item">
                       <img
                         src="assets/img/testimonials/testimonials-4.jpg"
-                        class="testimonial-img"
+                        className="testimonial-img"
                         alt=""
                       />
                       <h3>Matt Brandon</h3>
                       <h4>Freelancer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div className="stars">
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
                       </div>
                       <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
+                        <i className="bi bi-quote quote-icon-left"></i>
                         Fugiat enim eram quae cillum dolore dolor amet nulla
                         culpa multos export minim fugiat minim velit minim dolor
                         enim duis veniam ipsum anim magna sunt elit fore quem
                         dolore labore illum veniam.
-                        <i class="bi bi-quote quote-icon-right"></i>
+                        <i className="bi bi-quote quote-icon-right"></i>
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
+                <div className="swiper-slide">
+                  <div className="testimonial-wrap">
+                    <div className="testimonial-item">
                       <img
                         src="assets/img/testimonials/testimonials-5.jpg"
-                        class="testimonial-img"
+                        className="testimonial-img"
                         alt=""
                       />
                       <h3>John Larson</h3>
                       <h4>Entrepreneur</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div className="stars">
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
+                        <i className="bi bi-star-fill"></i>
                       </div>
                       <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
+                        <i className="bi bi-quote quote-icon-left"></i>
                         Quis quorum aliqua sint quem legam fore sunt eram irure
                         aliqua veniam tempor noster veniam enim culpa labore
                         duis sunt culpa nulla illum cillum fugiat legam esse
                         veniam culpa fore nisi cillum quid.
-                        <i class="bi bi-quote quote-icon-right"></i>
+                        <i className="bi bi-quote quote-icon-right"></i>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="swiper-pagination"></div>
+              <div className="swiper-pagination"></div>
             </div>
           </div>
         </section>
