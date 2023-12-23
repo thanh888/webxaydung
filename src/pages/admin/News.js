@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useSelector } from "react-redux";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import axios from "axios";
 import ModalCreateNews from "../../components/admin/news/ModalCreateNews";
 import ModalEditNews from "../../components/admin/news/ModalEditNews";
@@ -17,6 +17,7 @@ export default function News() {
   const [news, setNews] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [listCategories, setListCategories] = useState([]);
   const navigate = useNavigate();
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
@@ -28,7 +29,38 @@ export default function News() {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
-
+  const getListCategory = async () => {
+    await axios
+      .get("/api/v1/category", {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      })
+      .then((response) => {
+        setListCategories(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const filterByCategory = async (e) => {
+    if (e.target.value === 0) {
+      fetchListNews();
+      return;
+    }
+    await axios
+      .get(`/api/v1/new?category_id=${e.target.value}`, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      })
+      .then((response) => {
+        setListNews(response.data.news);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const fetchListNews = async () => {
     await axios
       .get("/api/v1/new", {
@@ -45,11 +77,9 @@ export default function News() {
   };
   useEffect(() => {
     fetchListNews();
+    getListCategory();
   }, []);
-  const formatDate = (dateArray) => {
-    const [year, month, day, hour, minute, second] = dateArray;
-    return `${year}-${month}-${day}`;
-  };
+
   const headers = [
     {
       name: "Tiêu đề bài viết",
@@ -109,12 +139,9 @@ export default function News() {
     },
   ];
   const handClickCreate = () => {
-    // setModalCreate(true);
     navigate("/admin/create-news");
   };
   const handleEdit = (data) => {
-    // setNews(data);
-    // setModalEdit(!modalEdit);
     navigate(`/admin/update-news/${data.id}`);
   };
   const handleDelete = (data) => {
@@ -153,10 +180,24 @@ export default function News() {
         />
       )}
       <h2>Quản lý tin tức</h2>
-      <div className="top-content text-start mt-3 mb-3">
-        <Button variant="primary" onClick={handClickCreate}>
-          Thêm mới tin tức
-        </Button>
+      <div className="top-content text-start mt-3 mb-3 d-flex justify-content-between">
+        <div className="col-4">
+          <Button variant="primary" onClick={handClickCreate}>
+            Thêm mới tin tức
+          </Button>
+        </div>
+        <div className="col-4">
+          <Form.Select
+            aria-label="Default select example"
+            onChange={(e) => filterByCategory(e)}
+          >
+            <option value={0}>Lọc theo danh mục</option>
+            {listCategories &&
+              listCategories.map((category) => {
+                return <option value={category.id}>{category.name}</option>;
+              })}
+          </Form.Select>
+        </div>
       </div>
       {listNews ? (
         <DataTable
