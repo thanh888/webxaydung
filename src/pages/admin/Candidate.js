@@ -103,16 +103,12 @@ export default function Candidate() {
     <div>
       <h2>Quản lý danh mục tin tức</h2>
       <div className="top-content text-start mt-3 mb-3"></div>
-      <div className="row">
-        <div className="col-6">
-          <DataTable
-            columns={headers}
-            data={listCandidates}
-            defaultSortField="title"
-            pagination
-          />
-        </div>
-      </div>
+      <DataTable
+        columns={headers}
+        data={listCandidates}
+        defaultSortField="title"
+        pagination
+      />
     </div>
   );
 }

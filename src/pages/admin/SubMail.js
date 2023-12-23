@@ -70,12 +70,16 @@ export default function SubMail() {
     <div>
       <h2 className="mt-2">Quản lý danh sách email đăng ký</h2>
       <div className="top-content text-start mt-3 mb-3"></div>
-      <DataTable
-        columns={headers}
-        data={listSubMail}
-        defaultSortField="title"
-        pagination
-      />
+      <div className="row">
+        <div className="col-6">
+          <DataTable
+            columns={headers}
+            data={listSubMail}
+            defaultSortField="title"
+            pagination
+          />
+        </div>
+      </div>
     </div>
   );
 }

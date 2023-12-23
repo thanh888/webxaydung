@@ -42,7 +42,6 @@ function ModalCreateJobOpening({
       !hiring_needs ||
       !requirement ||
       !start_day ||
-      !vacancies ||
       !end_day
     ) {
       toast.warning("Thông tin không được bỏ trống", {
