@@ -11,7 +11,7 @@ export default function Header() {
       <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
         <Link to="/" className="logo d-flex align-items-center">
           <h1>
-            UpConstruction<span>.</span>
+            HMPConstruction<span>.</span>
           </h1>
         </Link>
 

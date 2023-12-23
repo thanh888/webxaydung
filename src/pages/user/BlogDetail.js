@@ -82,10 +82,7 @@ export default function BlogDetail() {
                   />
                 </div>
 
-                <h2 class="title">
-                  Dolorum optio tempore voluptas dignissimos cumque fuga qui
-                  quibusdam quia
-                </h2>
+                <h2 class="title">{news?.title}</h2>
 
                 <div class="meta-top">
                   <ul>

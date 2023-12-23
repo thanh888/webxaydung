@@ -32,7 +32,9 @@ export default function Admin() {
       <div className="">
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand>Quản lý</Navbar.Brand>
+            <Navbar.Brand>
+              <img src="/assets/img/logo.jpg" height={40} />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto ">

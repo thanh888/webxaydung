@@ -72,7 +72,7 @@ export default function UserContact() {
                 <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-map"></i>
                   <h3>Địa chỉ</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>Đường Cách Mạng Tháng 8, Biên Hòa, Vietnam</p>
                 </div>
               </div>
 
@@ -80,7 +80,7 @@ export default function UserContact() {
                 <div class="info-item d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-envelope"></i>
                   <h3>Email</h3>
-                  <p>contact@example.com</p>
+                  <p>vohoanhson@gmail.com</p>
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ export default function UserContact() {
                 <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-telephone"></i>
                   <h3>Số Điện Thoại</h3>
-                  <p>+1 5589 55488 55</p>
+                  <p>094 388 11 69</p>
                 </div>
               </div>
             </div>

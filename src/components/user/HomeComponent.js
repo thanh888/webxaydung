@@ -102,13 +102,14 @@ export default function HomeComponent() {
             <div className="row justify-content-center">
               <div className="col-lg-6 text-center">
                 <h2 data-aos="fade-down">
-                  Chào mừng đến với <span>UpConstruction</span>
+                  Chào mừng đến với <span>HMPConstruction</span>
                 </h2>
                 <p data-aos="fade-up">
-                  Điều quan trọng là phải chăm sóc bệnh nhân, có bác sĩ theo
-                  dõi, nhưng đó là lúc đau đớn và khổ sở vô cùng. Để đi đến chi
-                  tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc
-                  nào trừ khi anh ta thu được lợi ích nào đó từ nó.
+                  Chào mừng đến với HMPConstruction - nơi mỗi công trình không
+                  chỉ là xây dựng, mà là châm ngôn của chất lượng, tận tâm và sự
+                  đam mê. Chúng tôi xây dựng không gian sống và làm việc với mọi
+                  chi tiết được chăm chút, mang đến trải nghiệm đẳng cấp và độc
+                  đáo.
                 </p>
                 <a
                   data-aos="fade-up"
@@ -193,19 +194,17 @@ export default function HomeComponent() {
                 data-aos="fade-up"
               >
                 <div className="content">
-                  <h3>Chúng tôi không từ chối khả năng tại đây.</h3>
+                  <h3>Liên hệ ngay với chúng tôi.</h3>
                   <p>
-                    Chúng tôi lại ở đây. Chúng tôi từ chối sự lựa chọn tốt nhất
-                    để giải quyết nỗi đau. Chúng tôi tự nhiên ở đây. Chúng tôi
-                    cung cấp cho bạn sự thoải mái và sự thoải mái. Chúng tôi yêu
-                    cầu bạn chấp nhận sự thật.
+                    Chúng tôi lại ở đây để cung cấp giải pháp đúng đắn, đầy sáng
+                    tạo, và không ngừng nỗ lực để mang lại thoải mái và sự hài
+                    lòng cho bạn. Hãy chấm dứt nỗi đau của dự án, và để chúng
+                    tôi làm nên sự khác biệt.
                   </p>
                   <p>
-                    Chúng tôi từ chối sự lựa chọn tốt nhất. Chúng tôi sáng tạo
-                    và thường xuyên. Chúng tôi chấp nhận sự lựa chọn tốt nhất và
-                    chúng tôi từ chối sự lựa chọn tốt nhất. Chúng tôi từ chối sự
-                    lựa chọn tốt nhất và chúng tôi yêu cầu bạn chấp nhận sự
-                    thật.
+                    Liên hệ ngay, chúng tôi chấp nhận sự lựa chọn tốt nhất và
+                    đưa ra giải pháp độc đáo, tự nhiên, đáp ứng mọi mong đợi của
+                    bạn.
                   </p>
                 </div>
               </div>
@@ -295,10 +294,7 @@ export default function HomeComponent() {
           <div className="container" data-aos="fade-up">
             <div className="section-header">
               <h2>Dự án</h2>
-              <p>
-                Họ không biết phải làm gì ngoài việc tìm ra cách Hơn nữa, không
-                có gì vì lý do đó
-              </p>
+              <p>Chỉ sự sáng tạo và chất lượng tạo nên mọi công trình.</p>
             </div>
 
             <div className="row gy-4">
