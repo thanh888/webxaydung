@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function BlogDetail() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const [news, setNews] = useState();
+  const [recentNews, setRecentNews] = useState();
   const [search, setSearch] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,9 +31,20 @@ export default function BlogDetail() {
       console.log(error);
     }
   };
+  const getRecentNews = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/new/recent");
+      if (data) {
+        setRecentNews(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
     getInforNew();
+    getRecentNews();
     if (window.FB) {
       window.FB.XFBML.parse();
     }
@@ -43,10 +55,9 @@ export default function BlogDetail() {
         cookie: true, // enable cookies to allow the server to access
         // the session
         xfbml: true, // parse social plugins on this page
-        version: "v2.1", // use version 2.1
+        version: "v2.1",
       });
     };
-    // Load the SDK asynchronously
     (function (d, s, id) {
       var js,
         fjs = d.getElementsByTagName(s)[0];
@@ -132,68 +143,34 @@ export default function BlogDetail() {
                 </div>
                 <div class="sidebar-item recent-posts">
                   <h3 class="sidebar-title">Bài viết gần đây</h3>
-
-                  <div class="mt-3">
-                    <div class="post-item mt-3">
-                      <img src="/assets/img/blog/blog-recent-1.jpg" alt="" />
-                      <div>
-                        <h4>
-                          <a href="blog-details.html">
-                            Nihil blanditiis at in nihil autem
-                          </a>
-                        </h4>
-                        <time datetime="2020-01-01">Jan 1, 2020</time>
-                      </div>
-                    </div>
-
-                    <div class="post-item">
-                      <img src="/assets/img/blog/blog-recent-2.jpg" alt="" />
-                      <div>
-                        <h4>
-                          <a href="blog-details.html">
-                            Quidem autem et impedit
-                          </a>
-                        </h4>
-                        <time datetime="2020-01-01">Jan 1, 2020</time>
-                      </div>
-                    </div>
-
-                    <div class="post-item">
-                      <img src="/assets/img/blog/blog-recent-3.jpg" alt="" />
-                      <div>
-                        <h4>
-                          <a href="blog-details.html">
-                            Id quia et et ut maxime similique occaecati ut
-                          </a>
-                        </h4>
-                        <time datetime="2020-01-01">Jan 1, 2020</time>
-                      </div>
-                    </div>
-
-                    <div class="post-item">
-                      <img src="/assets/img/blog/blog-recent-4.jpg" alt="" />
-                      <div>
-                        <h4>
-                          <a href="blog-details.html">
-                            Laborum corporis quo dara net para
-                          </a>
-                        </h4>
-                        <time datetime="2020-01-01">Jan 1, 2020</time>
-                      </div>
-                    </div>
-
-                    <div class="post-item">
-                      <img src="/assets/img/blog/blog-recent-5.jpg" alt="" />
-                      <div>
-                        <h4>
-                          <a href="blog-details.html">
-                            Et dolores corrupti quae illo quod dolor
-                          </a>
-                        </h4>
-                        <time datetime="2020-01-01">Jan 1, 2020</time>
-                      </div>
-                    </div>
-                  </div>
+                  {recentNews &&
+                    recentNews.map((recentNew) => {
+                      return (
+                        <div class="mt-3">
+                          <div class="post-item mt-3">
+                            <img
+                              src={`http://localhost:8080/api/v1/new/images/${recentNew?.thumbnail}`}
+                              alt=""
+                              style={{
+                                width: "80px",
+                                height: "65px",
+                                objectFit: "cover",
+                              }}
+                            />
+                            <div>
+                              <h4>
+                                <a href="blog-details.html">
+                                  {recentNew.title}
+                                </a>
+                              </h4>
+                              <time datetime="2020-01-01">
+                                {recentNew.date_published}
+                              </time>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             </div>
