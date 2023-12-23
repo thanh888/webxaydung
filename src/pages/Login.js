@@ -3,6 +3,7 @@ import { loginUser } from "../redux/apiRequest";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { Form } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
 export default function Login() {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +15,7 @@ export default function Login() {
     if (user) {
       navigate("/admin");
     }
-  }, []);
+  }, [user]);
 
   const submitLogin = (e) => {
     e.preventDefault();
@@ -22,9 +23,9 @@ export default function Login() {
     const data = {
       account: account,
       password: password,
-      role_id: "",
+      role_id: isAdmin ? 1 : 2,
     };
-    loginUser(data, dispatch, navigate);
+    loginUser(data, dispatch, navigate, toast);
   };
 
   return (

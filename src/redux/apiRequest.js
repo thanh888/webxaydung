@@ -13,12 +13,16 @@ import {
   getEmloyeesSuccess,
 } from "./employeeSlice";
 
-export const loginUser = async (user, dispatch, navigate) => {
+export const loginUser = async (user, dispatch, navigate, toast) => {
   dispatch(loginStart);
   try {
     const res = await axios.post("/api/v1/user/login", user);
-    dispatch(loginSuccess(res.data));
-    navigate("/admin");
+    if (res.data.token) {
+      dispatch(loginSuccess(res.data));
+      navigate("/admin");
+    } else {
+      toast.error("Tài khoản không hợp lệ");
+    }
   } catch (error) {
     dispatch(loginFailded);
   }
