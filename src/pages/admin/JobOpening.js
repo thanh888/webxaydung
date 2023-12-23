@@ -40,7 +40,7 @@ export default function JobOpening() {
       sortable: true,
     },
     {
-      name: "Nhu cầu tuyển dụng",
+      name: "Số lượng tuyển dụng",
       selector: (row) => row.hiring_needs,
       sortable: true,
     },

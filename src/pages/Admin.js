@@ -59,13 +59,6 @@ export default function Admin() {
                     </Nav.Link>
                     <Nav.Link
                       as={Link}
-                      to="/admin/candidate"
-                      className="text-dark"
-                    >
-                      Đơn Tuyển Dụng
-                    </Nav.Link>
-                    <Nav.Link
-                      as={Link}
                       to="/admin/contact"
                       className="text-dark"
                     >

@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { Button } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
 export default function ContactManagement() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const [listContacts, setListContacts] = useState([]);
@@ -23,10 +25,6 @@ export default function ContactManagement() {
   useEffect(() => {
     fetchListContacts();
   }, []);
-  const formatDate = (dateArray) => {
-    const [year, month, day, hour, minute, second] = dateArray;
-    return `${year}-${month}-${day}`;
-  };
   const headers = [
     {
       name: "Tên người gửi",
@@ -40,7 +38,9 @@ export default function ContactManagement() {
     },
     {
       name: "Lời nhắn",
-      selector: (row) => row.message,
+      selector: (row) => (
+        <div style={{ whiteSpace: "pre-wrap" }}>{row.message}</div>
+      ),
       sortable: true,
     },
     {
@@ -64,20 +64,39 @@ export default function ContactManagement() {
     //   allowOverflow: true,
     //   button: true,
     // },
-    // {
-    //   name: "Xóa",
-    //   cell: (row) => (
-    //     <Button className="btn btn-danger" onClick={() => handleDelete(row)}>
-    //       Xóa
-    //     </Button>
-    //   ),
-    //   ignoreRowClick: true,
-    //   allowOverflow: true,
-    //   button: true,
-    // },
+    {
+      name: "Xóa",
+      cell: (row) => (
+        <Button className="btn btn-danger" onClick={() => handleDelete(row)}>
+          Xóa
+        </Button>
+      ),
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
+    },
   ];
+  const handleDelete = async (row) => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+      const { data } = await axios.delete("/api/v1/contact/" + row.id, config);
+      if (data) {
+        toast.success("Xóa thành công", {
+          autoClose: 700,
+        });
+        fetchListContacts();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
+      <ToastContainer />
       <div>
         <h1>Danh sách thông tin liên hệ</h1>
       </div>

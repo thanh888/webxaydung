@@ -2,7 +2,7 @@ import axios from "axios";
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -159,9 +159,9 @@ export default function BlogDetail() {
                             />
                             <div>
                               <h4>
-                                <a href="blog-details.html">
+                                <Link to={`/blog-detail/${recentNew.id}`}>
                                   {recentNew.title}
-                                </a>
+                                </Link>
                               </h4>
                               <time datetime="2020-01-01">
                                 {recentNew.date_published}
