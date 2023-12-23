@@ -64,13 +64,13 @@ export default function HomeComponent() {
   };
   const getAllNews = async () => {
     await axios
-      .get("/api/v1/new", {
+      .get("/api/v1/new?category_id=2", {
         headers: {
           Authorization: `Bearer ${user?.token}`,
         },
       })
       .then((response) => {
-        setListNews(response.data.news);
+        setListNews(response.data.news.slice(0, 6));
       })
       .catch((error) => {
         console.log(error);
