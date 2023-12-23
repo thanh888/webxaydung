@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { createRef, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import { useSelector } from "react-redux";
@@ -61,7 +61,11 @@ export default function Candidate() {
     },
     {
       name: "File CV",
-      selector: (row) => cvData[row],
+      selector: (row) => (
+        <Button className="btn btn-success" onClick={() => downloadCVFile(row)}>
+          Tải xuống
+        </Button>
+      ),
       sortable: true,
     },
     {
@@ -97,6 +101,50 @@ export default function Candidate() {
   const handleDelete = (data) => {
     setCandidate(data);
     setModalDelete(!modalDelete);
+  };
+
+  function base64ToBlob(base64, mimeType) {
+    const byteCharacters = atob(base64);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: mimeType });
+    return blob;
+  }
+  const downloadCVFile = (row) => {
+    const base64String = row.cv_file;
+    const blob = base64ToBlob(base64String, "application/pdf");
+    const url = URL.createObjectURL(blob);
+    // link.current.href = url;
+    // link.current.download = `${row.name}.pdf `;
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create a download link and trigger it
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${row.name}.pdf`); // Set desired filename
+        link.click();
+
+        // Revoke the object URL after download completes
+        link.addEventListener("load", () => {
+          URL.revokeObjectURL(url);
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching blob:", error);
+        // Handle errors, e.g., display an error message
+      });
   };
 
   return (
