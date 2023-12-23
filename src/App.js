@@ -22,6 +22,7 @@ import ServiceDetail from "./pages/user/ServiceDetail";
 import Candidate from "./pages/admin/Candidate";
 import UserJobOpening from "./pages/user/UserJobOpening";
 import DetailJobOpening from "./pages/user/DetailJobOpening";
+import Search from "./pages/user/Search";
 function App() {
   return (
     <div className="App">
@@ -41,6 +42,7 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="blog" element={<UserBlog />} />
               <Route path="blog-detail/:id" element={<BlogDetail />} />
+              <Route path="search/:keyword" element={<Search />} />
               <Route path="service-detail/:id" element={<ServiceDetail />} />
             </Route>
             <Route path="admin" element={<Admin />}>

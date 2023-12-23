@@ -1,17 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-export default function UserBlog() {
+export default function Search() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const [listNews, setListNews] = useState([]);
   const navigate = useNavigate();
+  const { keyword } = useParams();
   const getAllNews = async () => {
     await axios
-      .get("/api/v1/new", {
+      .get("/api/v1/new?keyword=" + keyword, {
         headers: {
           Authorization: `Bearer ${user?.token}`,
         },
@@ -38,9 +39,8 @@ export default function UserBlog() {
       });
   };
   useEffect(() => {
-    window.scrollTo(0, 0);
     getAllNews();
-  }, []);
+  }, [keyword]);
   const handleClickNews = (id) => {
     navigate(`/blog-detail/${id}`);
   };
@@ -55,7 +55,7 @@ export default function UserBlog() {
             class="container position-relative d-flex flex-column align-items-center"
             data-aos="fade"
           >
-            <h2>Blog</h2>
+            <h2>Tìm kiếm</h2>
           </div>
         </div>
 
@@ -104,20 +104,6 @@ export default function UserBlog() {
                     </div>
                   );
                 })}
-            </div>
-
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li>
-                  <a href="#">1</a>
-                </li>
-                <li class="active">
-                  <a href="#">2</a>
-                </li>
-                <li>
-                  <a href="#">3</a>
-                </li>
-              </ul>
             </div>
           </div>
         </section>

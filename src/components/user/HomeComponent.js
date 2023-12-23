@@ -281,7 +281,7 @@ export default function HomeComponent() {
                         bạn!
                       </div>
 
-                      <button type="submit">Nhận báo giá</button>
+                      <button type="submit">Gửi liên hệ</button>
                     </div>
                   </div>
                 </form>

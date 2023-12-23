@@ -3,11 +3,16 @@ import axios from "axios";
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function ServiceDetail() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const [news, setNews] = useState();
   const { id } = useParams();
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
   const getInforNew = async () => {
     try {
       const { data } = await axios.get(`/api/v1/new/${id}`);
@@ -53,9 +58,17 @@ export default function ServiceDetail() {
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
   }, [id]);
-
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!search) {
+      toast.warning("Vui lòng nhập nội dung tìm kiếm", { autoClose: 700 });
+      return;
+    }
+    navigate(`/search/${search}`);
+  };
   return (
     <main id="main">
+      <ToastContainer />
       <div
         class="breadcrumbs d-flex align-items-center"
         style={{ backgroundImage: "url('/assets/img/breadcrumbs-bg.jpg')" }}
@@ -107,8 +120,12 @@ export default function ServiceDetail() {
               <div class="sidebar">
                 <div class="sidebar-item search-form">
                   <h3 class="sidebar-title">Tìm kiếm</h3>
-                  <form action="" class="mt-3">
-                    <input type="text" />
+                  <form onSubmit={handleSearch} class="mt-3">
+                    <input
+                      type="text"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
                     <button type="submit">
                       <i class="bi bi-search"></i>
                     </button>
