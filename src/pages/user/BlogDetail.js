@@ -11,6 +11,7 @@ export default function BlogDetail() {
   const [news, setNews] = useState();
   const [recentNews, setRecentNews] = useState();
   const [search, setSearch] = useState("");
+  const [categories, setCategories] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
   const getInforNew = async () => {
@@ -41,10 +42,21 @@ export default function BlogDetail() {
       console.log(error);
     }
   };
+  const getListCategory = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/category");
+      if (data) {
+        setCategories(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
     getInforNew();
     getRecentNews();
+    getListCategory();
     if (window.FB) {
       window.FB.XFBML.parse();
     }

@@ -23,6 +23,7 @@ import Candidate from "./pages/admin/Candidate";
 import UserJobOpening from "./pages/user/UserJobOpening";
 import DetailJobOpening from "./pages/user/DetailJobOpening";
 import Search from "./pages/user/Search";
+import UserCategory from "./pages/user/UserCategory";
 function App() {
   return (
     <div className="App">
@@ -40,6 +41,7 @@ function App() {
                 element={<DetailJobOpening />}
               />
               <Route path="about" element={<About />} />
+              <Route path="category/:id" element={<UserCategory />} />
               <Route path="blog" element={<UserBlog />} />
               <Route path="blog-detail/:id" element={<BlogDetail />} />
               <Route path="search/:keyword" element={<Search />} />

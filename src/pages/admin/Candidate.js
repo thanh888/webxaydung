@@ -41,7 +41,8 @@ export default function Candidate() {
       });
   };
   const filterByJobs = async (e) => {
-    if (e.target.value === 0) {
+    console.log(e.target.value);
+    if (e.target.value == 0) {
       getListCandidates();
       return;
     }
@@ -164,7 +165,7 @@ export default function Candidate() {
 
   return (
     <div>
-      <h2>Quản lý danh mục tin tức</h2>
+      <h2>Quản lý ứng viên</h2>
       <div className="col-4 mt-2">
         <Form.Select
           aria-label="Default select example"

@@ -3,7 +3,7 @@ import axios from "axios";
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function ServiceDetail() {
@@ -13,6 +13,7 @@ export default function ServiceDetail() {
   const [recentNews, setRecentNews] = useState();
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const [categories, setCategories] = useState("");
 
   const getInforNew = async () => {
     try {
@@ -32,6 +33,16 @@ export default function ServiceDetail() {
       console.log(error);
     }
   };
+  const getListCategory = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/category");
+      if (data) {
+        setCategories(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const getRecentNews = async () => {
     try {
       const { data } = await axios.get("/api/v1/new/recent");
@@ -46,6 +57,7 @@ export default function ServiceDetail() {
     window.scrollTo(0, 0);
     getInforNew();
     getRecentNews();
+    getListCategory();
     if (window.FB) {
       window.FB.XFBML.parse();
     }
