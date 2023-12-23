@@ -1,17 +1,17 @@
 import axios from "axios";
 import { createRef, useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import { useSelector } from "react-redux";
 
 export default function Candidate() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const [listCandidates, setListCandidates] = useState();
-  const [modalCreate, setModalCreate] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
   const [candidate, setCandidate] = useState("");
   const [cvData, setCvData] = useState({});
+  const [listJobOpening, setListJobOpening] = useState([]);
   const getListCandidates = async () => {
     await axios
       .get("/api/v1/candidate", {
@@ -26,20 +26,40 @@ export default function Candidate() {
         console.log(error);
       });
   };
-  const formatFileCV = async (data) => {
-    try {
-      const response = await axios.get(`/api/v1/candidate/${data.id}/cv`, {
+  const getListJobOpening = async () => {
+    await axios
+      .get("/api/v1/job_opening", {
         headers: {
           Authorization: `Bearer ${user?.token}`,
         },
+      })
+      .then((response) => {
+        setListJobOpening(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      console.log(response.data);
-      setCvData((prevState) => ({ ...prevState, [data.id]: response.data })); // Đặt dữ liệu trong trạng thái
-    } catch (error) {
-      console.log(error);
+  };
+  const filterByJobs = async (e) => {
+    if (e.target.value === 0) {
+      getListCandidates();
+      return;
     }
+    await axios
+      .get("/api/v1/candidate/byJobOpening/" + e.target.value, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      })
+      .then((response) => {
+        setListCandidates(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   useEffect(() => {
+    getListJobOpening();
     getListCandidates();
   }, []);
 
@@ -91,9 +111,6 @@ export default function Candidate() {
       button: true,
     },
   ];
-  const handClickCreate = () => {
-    setModalCreate(true);
-  };
   const handleEdit = (data) => {
     setCandidate(data);
     setModalEdit(!modalEdit);
@@ -124,8 +141,6 @@ export default function Candidate() {
     const base64String = row.cv_file;
     const blob = base64ToBlob(base64String, "application/pdf");
     const url = URL.createObjectURL(blob);
-    // link.current.href = url;
-    // link.current.download = `${row.name}.pdf `;
     fetch(url)
       .then((response) => response.blob())
       .then((blob) => {
@@ -150,6 +165,18 @@ export default function Candidate() {
   return (
     <div>
       <h2>Quản lý danh mục tin tức</h2>
+      <div className="col-4 mt-2">
+        <Form.Select
+          aria-label="Default select example"
+          onChange={(e) => filterByJobs(e)}
+        >
+          <option value={0}>Lọc theo bài tuyển dụng</option>
+          {listJobOpening &&
+            listJobOpening.map((job) => {
+              return <option value={job.id}>{job.title}</option>;
+            })}
+        </Form.Select>
+      </div>
       <div className="top-content text-start mt-3 mb-3"></div>
       <DataTable
         columns={headers}
