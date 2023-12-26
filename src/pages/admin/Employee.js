@@ -6,6 +6,7 @@ import axios from "axios";
 import ModalCreateEmployee from "../../components/admin/employee/ModalCreateEmployee";
 import ModalEditEmployee from "../../components/admin/employee/ModalEditEmployee";
 import ModalDeleteEmployee from "../../components/admin/employee/ModalDeleteEmployee";
+import { useNavigate } from "react-router";
 
 export default function Employee() {
   const user = useSelector((state) => state.auth.login.currentUser);
@@ -14,6 +15,7 @@ export default function Employee() {
   const [modalEdit, setModalEdit] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
   const [employee, setEmployee] = useState("");
+  const navigate = useNavigate();
   const fetchListEmloyees = async () => {
     await axios
       .get("/api/v1/employee", {
@@ -29,6 +31,10 @@ export default function Employee() {
       });
   };
   useEffect(() => {
+    const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+    if (isAdmin) {
+      navigate("/admin/user");
+    }
     fetchListEmloyees();
   }, []);
 

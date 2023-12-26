@@ -39,6 +39,10 @@ export default function Admin() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto ">
                 {isAdmin === true ? (
+                  <Nav.Link as={Link} to="/admin/user" className="text-dark">
+                    Tài khoản
+                  </Nav.Link>
+                ) : (
                   <>
                     <Nav.Link as={Link} to="/admin/" className="text-dark">
                       Nhân viên
@@ -71,20 +75,18 @@ export default function Admin() {
                     >
                       Sub-email
                     </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      to="/admin/category-news"
+                      className="text-dark"
+                    >
+                      Danh mục tin tức
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/admin/news" className="text-dark">
+                      Tin tức
+                    </Nav.Link>
                   </>
-                ) : (
-                  ""
                 )}
-                <Nav.Link
-                  as={Link}
-                  to="/admin/category-news"
-                  className="text-dark"
-                >
-                  Danh mục tin tức
-                </Nav.Link>
-                <Nav.Link as={Link} to="/admin/news" className="text-dark">
-                  Tin tức
-                </Nav.Link>
               </Nav>
               <div>
                 <Button className="btn" onClick={handleLogout}>

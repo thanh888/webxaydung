@@ -24,6 +24,7 @@ import UserJobOpening from "./pages/user/UserJobOpening";
 import DetailJobOpening from "./pages/user/DetailJobOpening";
 import Search from "./pages/user/Search";
 import UserCategory from "./pages/user/UserCategory";
+import AccountManagement from "./pages/admin/AccountManagement";
 function App() {
   return (
     <div className="App">
@@ -49,6 +50,7 @@ function App() {
             </Route>
             <Route path="admin" element={<Admin />}>
               <Route index element={<Employee />} />
+              <Route path="user" element={<AccountManagement />} />
               <Route path="category-news" element={<CategoryNews />} />
               <Route path="news" element={<News />} />
               <Route path="create-news" element={<CretateNews />} />
